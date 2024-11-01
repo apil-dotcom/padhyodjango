@@ -20,7 +20,7 @@ def create_blog(request):
         subtitle=request.POST.get("subtitle")
         description=request.POST.get("description")
         image=request.FILES.get("image")
-        blog=Blogs(title=title,subtitle=subtitle,description=description,image=image)
+        blog=Blogs(title=title,subtitle=subtitle,description=description,image=image,author=request.user)
         blog.save()
         return redirect("home")
     

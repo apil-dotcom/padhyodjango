@@ -10,7 +10,7 @@
 <body>
   {% include '../components/_navbar.html'%}
   <div class="flex flex-wrap space-x-8">
-    {% for blog in blogs%}
+    {% for blog in blogs %}
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src="{{blog.image.url}}" alt="Sunset in the mountains">
       <div class="px-6 py-4">
@@ -22,6 +22,7 @@
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
       </div>
+      <a href="/blog/{{blog.id}}">See more..</a>
     </div>
    {% endfor %}
   </div>
