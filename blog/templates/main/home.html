@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    {% load static%}
-    <link href="{% static 'src/styles.css'%}" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  {% load static %}
+  <link href="{% static 'src/styles.css' %}" rel="stylesheet" />
 </head>
+
 <body>
-  {% include '../components/_navbar.html'%}
+
+  <!-- Include navbar component if available -->
+  {% include '../components/_navbar.html' %}
+
+  <!-- Main container for blog posts -->
   <div class="flex flex-wrap space-x-8">
+
     {% for blog in blogs %}
     <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="{{blog.image.url}}" alt="Sunset in the mountains">
+      <!-- Debugging: Print the image URL and display image if available -->
+      {% if blog.image %}
+      <a href="/blog/{{ blog.id }}"><img class="w-full" src="{{ blog.image.url }}" alt="Image of {{ blog.title }}"></a>
+        
+      {% else %}
+        <p>image nai xaina</p>
+      {% endif %}
+      
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{{blog.title}}</div>
-        <p class="text-gray-700 text-base">{{blog.subtitle}}</p>
+        <div class="font-bold text-xl mb-2">{{ blog.title }}</div>
+        <p class="text-gray-700 text-base">{{ blog.subtitle }}</p>
       </div>
-      <div class="px-6 pt-4 pb-2">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#blogging</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-      </div>
-      <a href="/blog/{{blog.id}}">See more..</a>
     </div>
-   {% endfor %}
+    {% endfor %}
+
   </div>
-  
 
 </body>
 </html>

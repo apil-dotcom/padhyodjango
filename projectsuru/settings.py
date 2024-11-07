@@ -79,11 +79,11 @@ WSGI_APPLICATION = "projectsuru.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "pythonsikdai",
-        "HOST":"localhost",
+        "NAME": "railway",
+        "HOST":"autorack.proxy.rlwy.net",
         "USER":"root",
-        "PASSWORD":"",
-        "PORT":"3306"
+        "PASSWORD":"gJHWXqJWLfXOyUAjpZwnwDRtujUnPARJ",
+        "PORT":"22301"
     }
 }
 
